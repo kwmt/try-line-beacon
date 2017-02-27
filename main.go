@@ -37,9 +37,12 @@ func main() {
 			return
 		}
 		for _, event := range events {
-			if event.Type == linebot.EventTypeMessage {
+			if event.Type == linebot.EventTypeBeacon {
+				log.Println("type", event.Type)
 				switch message := event.Message.(type) {
 				case *linebot.TextMessage:
+					log.Println("message", message)
+					log.Println("linebot.NewTextMessage(message.Text)", linebot.NewTextMessage(message.Text))
 					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text)).Do(); err != nil {
 						log.Print(err)
 					}
