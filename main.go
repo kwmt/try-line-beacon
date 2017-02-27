@@ -41,9 +41,9 @@ func main() {
 		for _, event := range events {
 			log.Println("type", event.Type)
 			if event.Type == linebot.EventTypeBeacon {
-				
+				log.Println("message", event.Message)
 				switch message := event.Message.(type) {
-					log.Println("message", message)
+					
 				case *linebot.TextMessage:
 					log.Println("message", message)
 					log.Println("linebot.NewTextMessage(message.Text)", linebot.NewTextMessage(message.Text))
