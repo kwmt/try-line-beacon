@@ -42,15 +42,20 @@ func main() {
 			log.Println("type", event.Type)
 			if event.Type == linebot.EventTypeBeacon {
 				log.Println("message", event.Message)
-				switch message := event.Message.(type) {
-					
-				case *linebot.TextMessage:
-					log.Println("message", message)
-					log.Println("linebot.NewTextMessage(message.Text)", linebot.NewTextMessage(message.Text))
-					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text)).Do(); err != nil {
-						log.Print(err)
-					}
+
+				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("はろー")).Do(); err != nil {
+					log.Print(err)
 				}
+
+				// switch message := event.Message.(type) {
+
+				// case *linebot.TextMessage:
+				// 	log.Println("message", message)
+				// 	log.Println("linebot.NewTextMessage(message.Text)", linebot.NewTextMessage(message.Text))
+				// 	if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text)).Do(); err != nil {
+				// 		log.Print(err)
+				// 	}
+				// }
 			}
 		}
 	})
