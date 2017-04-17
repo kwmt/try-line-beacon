@@ -43,7 +43,7 @@ func main() {
 			if event.Type == linebot.EventTypeBeacon {
 				log.Println("message", event.Message)
 
-				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("はろー")).Do(); err != nil {
+				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("テスト")).Do(); err != nil {
 					log.Print(err)
 				}
 
