@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"os"
 	"html"
+	"fmt"
 //	"io/ioutil"
 
 	"github.com/line/line-bot-sdk-go/linebot"
@@ -19,7 +20,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	http.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		log.Println(req)
 		fmt.Fprintf(w, "Hello, %q", html.EscapeString(r.URL.Path))
 	})
